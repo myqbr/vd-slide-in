@@ -19,6 +19,9 @@ module.exports = function (grunt) {
         },
         sass: {
             dist: {
+                options: {
+                    noCache: true
+                },
                 files: {
                     "dist/css/vd-slide-in.css": "src/sass/vd-slide-in.scss"
                 }
