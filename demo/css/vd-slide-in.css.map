@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAGA,IAAK;EACH,IAAI,EAAE,0BAAgB;EACtB,KAAK,EAJS,OAAO",
+"sources": ["../../src/sass/vd-slide-in.scss"],
+"names": [],
+"file": "vd-slide-in.css"
+}

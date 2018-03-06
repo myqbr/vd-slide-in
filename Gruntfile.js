@@ -34,7 +34,7 @@ module.exports = function (grunt) {
                     }
                 },
                 files: {
-                    "dist/js/vd-slide-in.js": ["src/js/*.js"]
+                    "dist/js/vd-slide-in.js": ["src/js/*.module.js", "src/js/*.js"]
                 }
             }
         },
@@ -49,15 +49,11 @@ module.exports = function (grunt) {
             }
         },
         copy: {
-            bower: {
-                files: [{
-                    expand: true,
-                    cwd: "dist/",
-                    src: "src/*",
-                    dest: "../vd-slide-in-bower/",
-                    flatten: true,
-                    filter: "isFile"
-                }]
+            demo: {
+                expand: true,
+                cwd: "dist/",
+                src: "**",
+                dest: "demo/",
             }
         },
         watch: {
@@ -79,7 +75,6 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask("dev", ["concat:all", "sass", "cssmin", "uglify", "watch"]);
-    grunt.registerTask("default", ["clean:dist", "concat:all", "sass", "cssmin", "uglify", "copy:bower"]);
+    grunt.registerTask("default", ["clean:dist", "concat:all", "sass", "cssmin", "uglify", "copy:demo"]);
 
 };
