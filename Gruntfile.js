@@ -5,18 +5,6 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
         pkg: grunt.file.readJSON("package.json"),
-        concat: {
-            all: {
-                options: {
-                    process: function (content) {
-                        return grunt.template.process(content);
-                    }
-                },
-                files: {
-                    "dist/js/vd-slide-in-all.js": ["src/js/*.js"]
-                }
-            }
-        },
         sass: {
             dist: {
                 options: {
@@ -38,13 +26,25 @@ module.exports = function (grunt) {
                 }]
             }
         },
+        concat: {
+            all: {
+                options: {
+                    process: function (content) {
+                        return grunt.template.process(content);
+                    }
+                },
+                files: {
+                    "dist/js/vd-slide-in.js": ["src/js/*.js"]
+                }
+            }
+        },
         uglify: {
             options: {
                 preserveComments: "some"
             },
             build: {
                 files: [{
-                    "dist/js/vd-slide-in-all.min.js": "dist/js/vd-slide-in-all.js",
+                    "dist/js/vd-slide-in.min.js": "dist/js/vd-slide-in.js",
                 }]
             }
         },
