@@ -1,21 +1,24 @@
-(function(){
+(function () {
     "use strict";
 
     angular.module("vivadecora.module.vd-slide-in", []);
 })();
-(function(){
+(function () {
     "use strict";
 
     angular.module("vivadecora.module.vd-slide-in").controller("SlideInController", SlideInController);
 
-    SlideInController.$inject = ["SlideInModel"];
+    SlideInController.$inject = ["SlideInModel", "$timeout"];
 
-    function SlideInController(SlideInModel){
+    function SlideInController(SlideInModel, $timeout) {
         var vc = this;
-        vc.vm = SlideInModel.init();
+        vc.vm = SlideInModel.constructor();
+        $timeout(function () {
+            vc.vm.slideIn();
+        }, 1500);
     }
 })();
-(function(){
+(function () {
     "use strict";
 
     angular.module("vivadecora.module.vd-slide-in").directive("slideIn", SlideInDirective);
@@ -25,7 +28,7 @@
             transclude: true,
             templateUrl: "src/html/vd-slide-in.template.html",
             restrict: "E",
-            scope: {},
+            scope: true,
             replace: true,
             controller: "SlideInController",
             controllerAs: "vc"
@@ -33,7 +36,7 @@
         return directive;
     }
 })();
-(function() {
+(function () {
     "use strict";
 
     angular.module("vivadecora.module.vd-slide-in").factory("SlideInModel", SlideInModel);
@@ -41,19 +44,28 @@
     SlideInModel.$inject = [];
 
     function SlideInModel() {
-        var model = {
-            init: init,
-            slideOut: slideOut
+        var slideConstructor = {
+            constructor: constructor
         };
 
-        return model;
+        return slideConstructor;
 
-        function init() {
-            console.log("init");
-        }
+        function constructor() {
+            var model = {
+                isOpen: false,
+                slideIn: slideIn,
+                slideOut: slideOut
+            };
 
-        function slideOut() {
-            console.log("close");
+            function slideIn() {
+                model.isOpen = true;
+            }
+
+            function slideOut() {
+                model.isOpen = false;
+            }
+
+            return model;
         }
     }
 })();
@@ -61,7 +73,7 @@ angular.module('vivadecora.module.vd-slide-in').run(['$templateCache', function(
   'use strict';
 
   $templateCache.put('src/html/vd-slide-in.template.html',
-    "<div class=\"vd-slide-in\"><div class=\"vd-slide-in__container\"><button class=\"vd-slide-in__dismiss\">&times;</button><div ng-if=\"true\" class=\"vd-slide-in__content\"><h3 class=\"vd-slide-in__content__title\">RECEBA DICAS DE DECORAÇÃO</h3><p class=\"vd-slide-in__content__description\">Ideias, dicas e tudo que precisa saber para decorar sua casa</p><input type=\"text\" class=\"vd-slide-in__content__input\" placeholder=\"Digite seu e-mail\"> <input type=\"submit\" class=\"vd-slide-in__content__button\" value=\"ME ENVIE IDEIAS >\"></div><div ng-if=\"false\" class=\"vd-slide-in__content\"><p class=\"vd-slide-in__content__title\">Obrigada!</p></div></div></div>"
+    "<div ng-class=\"vc.vm.isOpen ? 'vd-slide-in': 'vd-slide-in--closed'\"><div class=\"vd-slide-in__container\"><button class=\"vd-slide-in__dismiss\" data-ng-click=\"vc.vm.slideOut()\">&times;</button><div ng-if=\"true\" class=\"vd-slide-in__content\"><h3 class=\"vd-slide-in__content__title\">RECEBA DICAS DE DECORAÇÃO</h3><p class=\"vd-slide-in__content__description\">Ideias, dicas e tudo que precisa saber para decorar sua casa</p><input type=\"text\" class=\"vd-slide-in__content__input\" placeholder=\"Digite seu e-mail\"> <input type=\"submit\" class=\"vd-slide-in__content__button\" value=\"ME ENVIE IDEIAS &gt;\"></div><div ng-if=\"false\" class=\"vd-slide-in__content\"><p class=\"vd-slide-in__content__title\">Obrigada!</p></div></div></div>"
   );
 
 }]);

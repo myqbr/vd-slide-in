@@ -1,4 +1,4 @@
-(function(){
+(function () {
     "use strict";
 
     angular.module("vivadecora.module.vd-slide-in").directive("slideIn", SlideInDirective);
@@ -8,7 +8,7 @@
             transclude: true,
             templateUrl: "src/html/vd-slide-in.template.html",
             restrict: "E",
-            scope: {},
+            scope: true,
             replace: true,
             controller: "SlideInController",
             controllerAs: "vc"

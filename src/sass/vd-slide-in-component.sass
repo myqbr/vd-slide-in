@@ -5,10 +5,9 @@
   bottom: 0
   left: 0
   right: 0
+  max-height: 500px
+  transition: all .3s ease-out
   overflow-y: hidden
-  max-height: 300px
-  transition-property: all
-  transition-duration: .5s
   +modifier("closed")
     max-height: 0
 
@@ -32,6 +31,8 @@
     margin-right: 8px
     background-color: transparent
     border: none
+    &:focus
+      outline: none
 
   +element("content")
     display: flex

@@ -1,4 +1,4 @@
-(function() {
+(function () {
     "use strict";
 
     angular.module("vivadecora.module.vd-slide-in").factory("SlideInModel", SlideInModel);
@@ -6,19 +6,28 @@
     SlideInModel.$inject = [];
 
     function SlideInModel() {
-        var model = {
-            init: init,
-            slideOut: slideOut
+        var slideConstructor = {
+            constructor: constructor
         };
 
-        return model;
+        return slideConstructor;
 
-        function init() {
-            console.log("init");
-        }
+        function constructor() {
+            var model = {
+                isOpen: false,
+                slideIn: slideIn,
+                slideOut: slideOut
+            };
 
-        function slideOut() {
-            console.log("close");
+            function slideIn() {
+                model.isOpen = true;
+            }
+
+            function slideOut() {
+                model.isOpen = false;
+            }
+
+            return model;
         }
     }
 })();
