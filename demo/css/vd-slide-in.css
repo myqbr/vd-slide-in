@@ -1,32 +1,46 @@
-.vd-slide-in {
+.vd-slide-in, .vd-slide-in--closed {
   font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   position: fixed;
   z-index: 160;
   bottom: 0;
-  display: flex;
-  padding: 15px;
-  border: 5px solid #1d1d1d;
-  background-color: #444;
-  color: #fff; }
+  left: 0;
+  right: 0;
+  overflow-y: hidden;
+  max-height: 300px;
+  transition-property: all;
+  transition-duration: 0.5s; }
+  .vd-slide-in--closed {
+    max-height: 0; }
+  .vd-slide-in__container {
+    display: flex;
+    border: 5px solid #1d1d1d;
+    background-color: #444;
+    color: #fff;
+    line-height: normal;
+    padding: 15px; }
   .vd-slide-in__dismiss {
     position: absolute;
     top: 0;
     right: 0;
-    color: #fff;
     font-size: 24px;
     font-size: 1.5rem;
     font-weight: 700;
+    color: #fff;
+    text-shadow: 0 2px #1d1d1d;
     padding: 0;
-    margin-right: 5px; }
+    margin-right: 8px;
+    background-color: transparent;
+    border: none; }
   .vd-slide-in__content {
     display: flex;
     flex-direction: column;
-    text-align: center; }
+    text-align: center;
+    width: 100%; }
     .vd-slide-in__content__title {
       font-size: 24px;
       font-size: 1.5rem;
       font-weight: 700;
-      margin-bottom: 15px; }
+      margin-bottom: 10px; }
     .vd-slide-in__content__description {
       margin-bottom: 15px; }
     .vd-slide-in__content__input {
@@ -52,8 +66,9 @@
         border-color: #c5182d; }
 
 @media screen and (min-width: 768px) {
-  .vd-slide-in {
+  .vd-slide-in, .vd-slide-in--closed {
+    left: auto;
     right: 0;
-    max-width: 300px; } }
+    width: 300px; } }
 
 /*# sourceMappingURL=vd-slide-in.css.map */

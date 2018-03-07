@@ -3,29 +3,45 @@
   position: fixed
   z-index: 160
   bottom: 0
-  display: flex
-  padding: 15px
-  border: 5px solid $color__dark-gray-dark
-  background-color: #444
-  color: $color__light-gray-light
+  left: 0
+  right: 0
+  overflow-y: hidden
+  max-height: 300px
+  transition-property: all
+  transition-duration: .5s
+  +modifier("closed")
+    max-height: 0
+
+  +element("container")
+    display: flex
+    border: 5px solid $color__dark-gray-dark
+    background-color: $color__dark-gray-primary
+    color: $color__light-gray-light
+    line-height: normal
+    padding: 15px
+
   +element("dismiss")
     position: absolute
     top: 0
     right: 0
-    color: $color__light-gray-light
     +font-size(24)
     font-weight: 700
+    color: $color__light-gray-light
+    text-shadow: 0 2px $color__dark-gray-dark
     padding: 0
-    margin-right: 5px
+    margin-right: 8px
+    background-color: transparent
+    border: none
 
   +element("content")
     display: flex
     flex-direction: column
     text-align: center
+    width: 100%
     +element("title")
       +font-size(24)
       font-weight: 700
-      margin-bottom: 15px
+      margin-bottom: 10px
     +element("description")
       margin-bottom: 15px
     +element("input")
@@ -50,5 +66,6 @@
 
 @media screen and (min-width: $screen-tablet-min)
   .vd-slide-in
+    left: auto
     right: 0
-    max-width: 300px
+    width: 300px
