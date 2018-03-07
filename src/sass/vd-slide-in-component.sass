@@ -1,0 +1,54 @@
+.vd-slide-in
+  font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
+  position: fixed
+  z-index: 160
+  bottom: 0
+  display: flex
+  padding: 15px
+  border: 5px solid $color__dark-gray-dark
+  background-color: #444
+  color: $color__light-gray-light
+  +element("dismiss")
+    position: absolute
+    top: 0
+    right: 0
+    color: $color__light-gray-light
+    +font-size(24)
+    font-weight: 700
+    padding: 0
+    margin-right: 5px
+
+  +element("content")
+    display: flex
+    flex-direction: column
+    text-align: center
+    +element("title")
+      +font-size(24)
+      font-weight: 700
+      margin-bottom: 15px
+    +element("description")
+      margin-bottom: 15px
+    +element("input")
+      margin-bottom: 10px
+      outline: 0
+      border: 0
+      border-radius: 5px
+      min-height: 25px
+      padding: 10px
+      +font-size(16)
+    +element("button")
+      background-color: $color__red-primary
+      border-color: $color__red-primary
+      color: $color__light-gray-light
+      border-radius: 5px
+      min-height: 25px
+      padding: 15px
+      +font-size(16)
+      &:hover
+        background-color: $color__red-dark
+        border-color: $color__red-dark
+
+@media screen and (min-width: $screen-tablet-min)
+  .vd-slide-in
+    right: 0
+    max-width: 300px

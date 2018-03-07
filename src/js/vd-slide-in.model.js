@@ -6,18 +6,19 @@
     SlideInModel.$inject = [];
 
     function SlideInModel() {
-        var constructorModel = {
-            constructor: constructor
+        var model = {
+            init: init,
+            slideOut: slideOut
         };
 
-        return constructorModel;
+        return model;
 
-        function constructor(instanceName) {
-            var model = {
-                instanceName: instanceName
-            };
+        function init() {
+            console.log("init");
+        }
 
-            return model;
+        function slideOut() {
+            console.log("close");
         }
     }
 })();

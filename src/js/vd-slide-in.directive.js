@@ -6,7 +6,7 @@
     function SlideInDirective() {
         var directive = {
             transclude: true,
-            template: "<p>Sim!</p>",
+            templateUrl: "src/html/vd-slide-in.template.html",
             restrict: "E",
             scope: {},
             replace: true,

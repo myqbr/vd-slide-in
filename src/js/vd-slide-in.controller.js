@@ -3,9 +3,10 @@
 
     angular.module("vivadecora.module.vd-slide-in").controller("SlideInController", SlideInController);
 
-    SlideInController.$inject = [];
+    SlideInController.$inject = ["SlideInModel"];
 
-    function SlideInController(){
+    function SlideInController(SlideInModel){
         var vc = this;
+        vc.vm = SlideInModel.init();
     }
 })();
