@@ -3,13 +3,10 @@
 
     angular.module("vivadecora.module.vd-slide-in").controller("SlideInController", SlideInController);
 
-    SlideInController.$inject = ["SlideInModel", "$timeout"];
+    SlideInController.$inject = ["SlideInModel"];
 
-    function SlideInController(SlideInModel, $timeout) {
+    function SlideInController(SlideInModel) {
         var vc = this;
-        vc.vm = SlideInModel.constructor();
-        $timeout(function () {
-            vc.vm.slideIn();
-        }, 1500);
+        vc.vm = SlideInModel;
     }
 })();

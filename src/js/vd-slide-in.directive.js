@@ -4,15 +4,15 @@
     angular.module("vivadecora.module.vd-slide-in").directive("slideIn", SlideInDirective);
 
     function SlideInDirective() {
-        var directive = {
-            transclude: true,
+        return {
             templateUrl: "src/html/vd-slide-in.template.html",
             restrict: "E",
-            scope: true,
+            transclude: true,
+            scope: {},
             replace: true,
-            controller: "SlideInController",
-            controllerAs: "vc"
+            bindToController: true,
+            controllerAs: "vc",
+            controller: "SlideInController"
         };
-        return directive;
     }
 })();
