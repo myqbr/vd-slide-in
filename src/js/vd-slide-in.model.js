@@ -14,9 +14,13 @@
 
         function constructor() {
             var model = {
+                formData: {
+                    email: ""
+                },
                 isOpen: false,
                 slideIn: slideIn,
-                slideOut: slideOut
+                slideOut: slideOut,
+                submitData: submitData
             };
 
             function slideIn() {
@@ -25,6 +29,10 @@
 
             function slideOut() {
                 model.isOpen = false;
+            }
+
+            function submitData() {
+                console.log(model.formData);
             }
 
             return model;

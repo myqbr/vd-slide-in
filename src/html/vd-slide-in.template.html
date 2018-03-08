@@ -4,8 +4,10 @@
         <div ng-if="true" class="vd-slide-in__content">
             <h3 class="vd-slide-in__content__title">RECEBA DICAS DE DECORAÇÃO</h3>
             <p class="vd-slide-in__content__description">Ideias, dicas e tudo que precisa saber para decorar sua casa</p>
-            <input type="text" class="vd-slide-in__content__input" placeholder="Digite seu e-mail">
-            <input type="submit" class="vd-slide-in__content__button" value="ME ENVIE IDEIAS &gt;">
+            <form class="vd-slide-in__content__form" data-ng-submit="vc.vm.submitData()">
+                <input type="email" data-ng-model="vc.vm.formData.email" class="vd-slide-in__content__form__input" placeholder="Digite seu e-mail">
+                <input type="submit" class="vd-slide-in__content__form__button" value="ME ENVIE IDEIAS &gt;">
+            </form>
         </div>
         <div ng-if="false" class="vd-slide-in__content">
             <p class="vd-slide-in__content__title">Obrigada!</p>

@@ -17,14 +17,14 @@
     background-color: $color__dark-gray-primary
     color: $color__light-gray-light
     line-height: normal
-    padding: 15px
+    padding: 10px
 
   +element("dismiss")
     position: absolute
     top: 0
     right: 0
     +font-size(24)
-    font-weight: 700
+    font-weight: bold
     color: $color__light-gray-light
     text-shadow: 0 2px $color__dark-gray-dark
     padding: 0
@@ -40,30 +40,33 @@
     text-align: center
     width: 100%
     +element("title")
-      +font-size(24)
-      font-weight: 700
+      +font-size(20)
+      font-weight: bold
       margin-bottom: 10px
     +element("description")
       margin-bottom: 15px
-    +element("input")
-      margin-bottom: 10px
-      outline: 0
-      border: 0
-      border-radius: 5px
-      min-height: 25px
-      padding: 10px
-      +font-size(16)
-    +element("button")
-      background-color: $color__red-primary
-      border-color: $color__red-primary
-      color: $color__light-gray-light
-      border-radius: 5px
-      min-height: 25px
-      padding: 15px
-      +font-size(16)
-      &:hover
-        background-color: $color__red-dark
-        border-color: $color__red-dark
+    +element("form")
+      display: flex
+      flex-direction: column
+      +element("input")
+        +font-size(16)
+        margin-bottom: 10px
+        outline: 0
+        border: 0
+        border-radius: 5px
+        min-height: 25px
+        padding: 10px
+      +element("button")
+        +font-size(16)
+        background-color: $color__red-primary
+        border-color: $color__red-primary
+        color: $color__light-gray-light
+        border-radius: 5px
+        min-height: 25px
+        padding: 15px
+        &:hover
+          background-color: $color__red-dark
+          border-color: $color__red-dark
 
 @media screen and (min-width: $screen-tablet-min)
   .vd-slide-in
