@@ -39,7 +39,6 @@
 
         function slideOut() {
             model.isOpen = false;
-            _resetData();
         }
 
         function shouldOpen() {
@@ -76,19 +75,12 @@
                 model.formData.finishStep = true;
                 $timeout(function () {
                     slideOut();
-                }, 5000);
+                }, 3000);
             });
         }
 
         function setFormUrl(url) {
             model.formData.url = url;
-        }
-
-        function _resetData() {
-            model.formData = {
-                email: "",
-                finishStep: false
-            };
         }
     }
 })();

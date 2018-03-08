@@ -73,14 +73,6 @@ module.exports = function (grunt) {
                 }]
             }
         },
-        copy: {
-            demo: {
-                expand: true,
-                cwd: "dist/",
-                src: "**",
-                dest: "demo/",
-            }
-        },
         watch: {
             css: {
                 files: "src/sass/**/*.sass",
@@ -93,6 +85,6 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask("default", ["clean:dist", "ngtemplates", "concat:all", "uglify", "sass", "cssmin", "copy:demo"]);
+    grunt.registerTask("default", ["clean:dist", "ngtemplates", "concat:all", "uglify", "sass", "cssmin"]);
 
 };
